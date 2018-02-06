@@ -33,9 +33,11 @@ class ViewController: UIViewController {
     //////////////////////////////////////
     //////////////////////////////////////
     //////////////////////////////////////
+    // function the gets called whent he screen loads up.
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        updateDiceImage()
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,16 +55,18 @@ class ViewController: UIViewController {
     // a event handler. As the user interacts with this element,
     // the code inside the block will be executed.
     @IBAction func UIButton(_ sender: UIButton) {
-        
-        // generate random number between 0 and 6.
+        updateDiceImage()
+    }
+    
+    // method
+    func updateDiceImage() {
+        // generate random number between 0 and 5
         randomDiceIndex1 = Int(arc4random_uniform(6))
         randomDiceIndex2 = Int(arc4random_uniform(6))
         
-        // programmatically changing properties of elements in the display.
+        //programmatically change properties of elements in the display.
         diceImageView1.image = UIImage(named: diceArray[randomDiceIndex1])
         diceImageView2.image = UIImage(named: diceArray[randomDiceIndex2])
-
-        
     }
     
 }
